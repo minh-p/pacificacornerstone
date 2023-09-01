@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* Boilerplate */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: none; /* for iOS Safari */
+  text-size-adjust: none; /* for other mobile browsers */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox] {
+  cursor: pointer;
+}
+
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+  list-style: none;
+}
+
+menu,
+ol,
+ul {
+  padding-left: 0;
+}
+
+article ol,
+article ul {
+  list-style-position: inside;
+}
+
+a {
+  /* Places underlines below the descenders */
+  text-underline-position: under;
+  /* Sets the thickness as a percentage of the font size */
+  text-decoration-thickness: 8;
+}
+
+/* Custom */
+body {
+  color: black;
+  background-color: #F9F5EB;
+  font-family: 'EB Garamond', serif;
+}

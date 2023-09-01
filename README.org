@@ -1,0 +1,16 @@
+#+title: README
+#+author: HMP
+#+date: <2023-09-01 Fri>
+
+** About
+This repository is the club website for the Corner Stone club in Pacifica.
+If the domain is up, it will be at https://pacificacornerstone.com.
+** About Me
+I am going to be the honorary secretary/tech consultant for the cornerstone club.
+** Tech Stack
+If the anyone in the club want to modify this website, then they would have to know javascript, typescript, and the NextJS web framework with the App Router. They must also understand basic GraqhQL operations that is connected to SANITY.
+** Porting Environment Variables
+#+BEGIN_SRC sh
+NEXT_PUBLIC_GRAPHQL_URL=...
+#+END_SRC
+Paste the GraphQL URL of Sanity into this environment variable. And everything should work.
