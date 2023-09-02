@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 const Home = () => {
   return (
@@ -62,7 +62,7 @@ const Home = () => {
         </p>
       </article>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
