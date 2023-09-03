@@ -11,7 +11,6 @@ const YoutubeComponent = () => {
     width: '960',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
     },
   }
 
@@ -25,8 +24,8 @@ const ClubActivities = () => {
       id="club-activities"
       className="relative max-w-[1920px] flex flex-col md:flex-row m-auto"
     >
-      <div className="text-center bg-white md:w-[50vw] aspect-video bg-slate-100">
-        <div className="m-auto p-5">
+      <div className="text-center bg-white md:w-[50vw] bg-slate-100">
+        <div className="m-auto p-5 aspect-video">
           <YoutubeComponent />
         </div>
       </div>
