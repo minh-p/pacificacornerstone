@@ -42,9 +42,9 @@ const Appbar = () => {
             <li>
               <Link
                 className="hover:underline text-3xl xl:text-4xl"
-                href="/meeting"
+                href="/meetings"
               >
-                Meeting
+                Meetings
               </Link>
             </li>
             <li>

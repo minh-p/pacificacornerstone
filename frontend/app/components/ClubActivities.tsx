@@ -30,7 +30,7 @@ const ClubActivities = () => {
         </div>
       </div>
       <div className="bg-[#f7f7f7] text-center md:w-[50vw] ">
-        <h2 className="underline lx:text-5xl lg:text-4xl md:text-3xl text-2xl underline mt-[50px] md:mt-[100px]">
+        <h2 className="underline lx:text-5xl lg:text-4xl md:text-3xl text-2xl underline mt-[50px] md:mt-[100px] font-bold">
           Club Activities
         </h2>
         {/*TODO: Add front face video content here for paragrph and title. As well the video.*/}
