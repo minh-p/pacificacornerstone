@@ -72,3 +72,13 @@ body {
   background-color: #f9f5eb;
   font-family: 'EB Garamond', serif;
 }
+
+iframe {
+  max-width: calc(100vw - 40px);
+}
+
+@media screen and (min-width: 1536px) {
+  iframe {
+    margin: auto;
+  }
+}

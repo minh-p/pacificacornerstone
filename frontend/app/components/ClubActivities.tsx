@@ -22,14 +22,14 @@ const ClubActivities = () => {
   return (
     <article
       id="club-activities"
-      className="relative max-w-[1920px] flex flex-col md:flex-row m-auto"
+      className="relative max-w-[1920px] flex flex-col 2xl:flex-row m-auto"
     >
-      <div className="text-center bg-white md:w-[50vw] bg-slate-100">
-        <div className="m-auto p-5 aspect-video">
+      <div className="text-center bg-white lx:w-[50vw] bg-slate-100">
+        <div className="m-auto p-5 aspect-video h-[580px]">
           <YoutubeComponent />
         </div>
       </div>
-      <div className="bg-[#f7f7f7] text-center md:w-[50vw] ">
+      <div className="bg-[#f7f7f7] text-center w-[100vw] 2xl:w-[50vw] ">
         <h2 className="underline lx:text-5xl lg:text-4xl md:text-3xl text-2xl underline mt-[50px] md:mt-[100px] font-bold">
           Club Activities
         </h2>
