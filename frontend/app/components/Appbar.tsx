@@ -6,12 +6,14 @@ const Appbar = () => {
     <nav className="w-screen flex flex-col xl:flex-row bg-red bg-[#952004] p-5 h-[179px]">
       <div className="m-auto flex flex-col xl:flex-row space-x-14">
         <div>
-          <ul className="flex flex-col">
-            <li className="text-3xl xl:text-4xl text-[#00a9ff]">
-              Pacifica GGUSD
-            </li>
-            <li className="text-3xl xl:text-4xl text-white">Corner Stone</li>
-          </ul>
+          <Link href="/">
+            <ul className="flex flex-col">
+              <li className="text-3xl xl:text-4xl text-[#00a9ff]">
+                Pacifica GGUSD
+              </li>
+              <li className="text-3xl xl:text-4xl text-white">Corner Stone</li>
+            </ul>
+          </Link>
         </div>
         <div className="flex flex-col space-y-4">
           <ul className="flex flex-col xl:flex-row xl:space-x-10">
