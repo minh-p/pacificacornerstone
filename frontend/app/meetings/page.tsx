@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 const Meetings = () => {
   return (
-    <section className="bg-[#f9f5eb]">
-      <article className="max-w-[1920px] m-auto h-full p-5">
-        <div className="m-auto max-w-[1920px]">
+    <section className="bg-zinc-200">
+      <article className="max-w-[1280px] m-auto h-full p-5 bg-[#f9f5eb] min-h-[calc(100vh-179px)]">
+        <div className="m-auto">
           <h1 className="font-bold text-center lx-text-5xl lg:text-4xl md:text-3xl text-2xl underline my-[25px]">
             Meeting Notes
           </h1>
