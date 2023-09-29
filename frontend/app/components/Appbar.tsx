@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import SignInButton from '@/app/components/SignInButton'
+import MobileNav from '@/app/components/MobileNav'
 
 const Appbar = () => {
   return (
-    <nav className="w-screen flex flex-col xl:flex-row bg-red bg-[#952004] p-5 h-[179px]">
-      <div className="m-auto flex flex-col xl:flex-row space-x-14">
+    <nav className="w-screen flex flex-row bg-red bg-[#952004] p-5 h-[179px] overflow-visible">
+      <div className="m-auto flex flex-row lg:space-x-8 xl:space-x-14 overflow-visible">
         <div>
           <Link href="/">
             <ul className="flex flex-col">
@@ -15,11 +16,11 @@ const Appbar = () => {
             </ul>
           </Link>
         </div>
-        <div className="flex flex-col space-y-4">
-          <ul className="flex flex-col xl:flex-row xl:space-x-10">
+        <div className="flex flex-col space-y-4 pl-5 hidden sm:block">
+          <ul className="flex flex-row space-x-10">
             <li>
               <Link
-                className="hover:underline text-3xl xl:text-4xl"
+                className="hover:underline text-2xl xl:text-3xl"
                 href="/mission"
               >
                 Mission
@@ -27,7 +28,7 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:underline text-3xl text-3xl xl:text-4xl"
+                className="hover:underline text-2xl xl:text-3xl"
                 href="/members"
               >
                 Members
@@ -35,7 +36,7 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:underline text-3xl text-3xl xl:text-4xl"
+                className="hover:underline text-2xl xl:text-3xl hidden md:block"
                 href="/schedule"
               >
                 Schedule
@@ -43,17 +44,17 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:underline text-3xl xl:text-4xl"
+                className="hover:underline text-2xl xl:text-3xl hidden lg:block"
                 href="/meetings"
               >
                 Meetings
               </Link>
             </li>
-            <li>
+            <li className="hidden xl:block">
               <SignInButton />
             </li>
           </ul>
-          <ul className="flex flex-col xl:flex-row xl:space-x-10">
+          <ul className="flex flex-row space-x-10">
             <li>
               <Link
                 className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded"
@@ -64,7 +65,7 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded"
+                className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded hidden lg:inline"
                 href="/writing-press"
               >
                 Writing Press
@@ -72,6 +73,7 @@ const Appbar = () => {
             </li>
           </ul>
         </div>
+        <MobileNav />
       </div>
     </nav>
   )
