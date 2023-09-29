@@ -59,9 +59,9 @@ const MobileNav = () => {
             <span className="block h-1 w-8 bg-[#f40707]"></span>
           </div>
         </button>
-        <div className="absolute xl:hidden h-[calc(100vh-179px)] bg-[#791818] z-20 top-[179px] w-screen sm:w-[400px] right-0 p-0 m-0 overflow-auto">
-          <div className="flex flex-col space-y-5 w-[70%] m-auto">
-            <ul className="flex flex-col space-y-5 mt-10">
+        <div className="absolute xl:hidden h-[50vh] bg-[#791818] z-20 bottom-0 w-screen right-0 p-0 m-0 overflow-auto">
+          <div className="flex flex-col space-y-5 w-[70%] m-auto my-10">
+            <ul className="flex flex-col space-y-5">
               <li>
                 <Link
                   className="hover:underline text-2xl xl:text-3xl block sm:hidden"
