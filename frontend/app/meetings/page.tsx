@@ -25,7 +25,7 @@ const Meetings = () => {
                 >
                   Read more
                   <ChevronRightIcon
-                    ariaHidden="true"
+                    aria-hidden="true"
                     className="-mr-1 h-8 w-5 text-white"
                   />
                 </Link>
