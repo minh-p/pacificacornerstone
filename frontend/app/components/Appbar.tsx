@@ -5,7 +5,7 @@ import MobileNav from '@/app/components/MobileNav'
 const Appbar = () => {
   return (
     <nav className="w-screen flex flex-row bg-red bg-[#952004] p-5 h-[179px] overflow-visible">
-      <div className="m-auto flex flex-row lg:space-x-8 xl:space-x-14 overflow-visible">
+      <div className="m-auto flex flex-row overflow-visible">
         <div>
           <Link href="/">
             <ul className="flex flex-col">
@@ -16,7 +16,7 @@ const Appbar = () => {
             </ul>
           </Link>
         </div>
-        <div className="flex flex-col space-y-4 pl-5 hidden sm:block">
+        <div className="flex flex-col space-y-4 pl-5 hidden sm:block mx-5">
           <ul className="flex flex-row space-x-10">
             <li>
               <Link

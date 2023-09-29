@@ -59,7 +59,7 @@ const MobileNav = () => {
             <span className="block h-1 w-8 bg-[#f40707]"></span>
           </div>
         </button>
-        <div className="absolute xl:hidden h-[50vh] bg-[#791818] z-20 bottom-0 w-screen right-0 p-0 m-0 overflow-auto">
+        <div className="fixed xl:hidden h-[50vh] bg-[#791818] z-20 bottom-0 w-screen right-0 md:right-0 md:top-[179px] md:w-[240px] md:h-[calc(100vh-179px)] p-0 overflow-auto">
           <div className="flex flex-col space-y-5 w-[70%] m-auto my-10">
             <ul className="flex flex-col space-y-5">
               <li>
