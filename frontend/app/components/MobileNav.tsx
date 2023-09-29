@@ -1,11 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SignInButton from '@/app/components/SignInButton'
 import Link from 'next/link'
 
 const MobileNav = () => {
   const [isOpened, setIsOpened] = useState(false)
+
+  useEffect(() => {
+    const closeNavBar = () => {
+      if (window.innerWidth >= 1280) {
+        setIsOpened(false)
+      }
+    }
+    window.addEventListener('resize', closeNavBar)
+    return () => window.removeEventListener('resize', closeNavBar)
+  }, [])
+
+  if (typeof window != 'undefined' && window.document) {
+    document.body.style.overflow = 'visible'
+  }
 
   if (!isOpened) {
     if (typeof window != 'undefined' && window.document) {
