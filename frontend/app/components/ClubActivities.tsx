@@ -25,7 +25,7 @@ const ClubActivities = () => {
       className="relative max-w-[1920px] flex flex-col 2xl:flex-row m-auto"
     >
       <div className="text-center bg-white lx:w-[50vw] bg-slate-100">
-        <div className="m-auto p-5 aspect-video h-[580px]">
+        <div className="m-auto p-5 aspect-video videoWrapper">
           <YoutubeComponent />
         </div>
       </div>
