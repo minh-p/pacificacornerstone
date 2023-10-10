@@ -80,6 +80,7 @@ body {
   height: 0;
   overflow: hidden;
   height: 360px;
+  width: 1280px;
   max-width: 100vw;
 }
 .videoWrapper iframe {
@@ -88,4 +89,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (min-width: 1536px) {
+  .videoWrapper {
+    width: 640px;
+  }
 }
