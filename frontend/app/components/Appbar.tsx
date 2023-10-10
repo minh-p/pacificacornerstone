@@ -39,7 +39,7 @@ const Appbar = () => {
                 className="hover:underline text-2xl xl:text-3xl hidden md:block"
                 href="/schedule"
               >
-                Schedule
+                Schedules
               </Link>
             </li>
             <li>

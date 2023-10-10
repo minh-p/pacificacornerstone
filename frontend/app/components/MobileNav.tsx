@@ -83,7 +83,7 @@ const MobileNav = () => {
                   className="hover:underline text-2xl xl:text-3xl block md:hidden"
                   href="/schedule"
                 >
-                  Schedule
+                  Schedules
                 </Link>
               </li>
               <li>

@@ -4,4 +4,4 @@ export default withAuth({
   secret: process.env.SECRET,
 })
 
-export const config = { matcher: ['/meetings', '/schedule'] }
+export const config = { matcher: ['/meetings/:path*', '/schedules/:path*'] }
