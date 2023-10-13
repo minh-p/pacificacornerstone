@@ -65,7 +65,7 @@ const MobileNav = () => {
               <li>
                 <Link
                   className="hover:underline text-2xl xl:text-3xl block sm:hidden"
-                  href="/mission"
+                  href="/"
                 >
                   Home
                 </Link>
