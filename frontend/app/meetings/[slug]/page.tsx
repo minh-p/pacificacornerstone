@@ -2,6 +2,7 @@ import type { WithSlug, Post } from '@/types/Post'
 import sanityClient from '@/lib/sanityClient'
 import { convertToSimpleDate } from '@/lib/convertToSimpleDate'
 import { PortableText } from '@portabletext/react'
+import type { PortableTextBlock } from '@portabletext/types'
 
 interface Props {
   slug: string
@@ -13,7 +14,7 @@ const allMeetingNotesQuery = `*[_type == "meetingNote"] {
 
 const meetingNoteQuery = `*[_type == "meetingNote" && slug.current == $slug] {
   title,
-  "authorName": author->name,
+  "author": author->name,
   publishedAt,
   body
 }`
@@ -22,12 +23,12 @@ export const generateStaticParams = async () => {
   const meetingNotes: WithSlug[] = await sanityClient.fetch({
     query: allMeetingNotesQuery,
     config: {
-      next: { revalidate: 120 }
-    }
+      next: { revalidate: 120 },
+    },
   })
   return meetingNotes
     .map((meetingNote: WithSlug) => ({
-      slug: meetingNote.slug || ''
+      slug: meetingNote.slug || '',
     }))
     .filter((eachPropField: Props) => eachPropField.slug != '')
 }
@@ -36,11 +37,11 @@ const MeetingNote = async ({ params }: { params: Props }) => {
   const data: Post[] = await sanityClient.fetch({
     query: meetingNoteQuery,
     params: {
-      slug: params.slug
+      slug: params.slug,
     },
     config: {
-      next: { revalidate: 120 }
-    }
+      next: { revalidate: 120 },
+    },
   })
 
   const meetingNote: Post = data[0]
@@ -49,14 +50,12 @@ const MeetingNote = async ({ params }: { params: Props }) => {
   }
 
   const date: string = convertToSimpleDate(String(meetingNote.publishedAt))
-  const authorName: string = meetingNote.authorName || ''
+  const author: string = meetingNote.author || ''
   const body: PortableTextBlock[] = meetingNote.body as PortableTextBlock[]
 
   const Author = () => {
-    if (authorName) {
-      return (
-        <p>By {authorName}</p>
-      )
+    if (author) {
+      return <p>By {author}</p>
     } else {
       return <></>
     }
@@ -65,7 +64,7 @@ const MeetingNote = async ({ params }: { params: Props }) => {
   return (
     <div className="text-center py-8 m-auto max-w-4xl">
       <h1 className="text-[26pt] md:text-[40pt]">{meetingNote.title}</h1>
-      <Author/>
+      <Author />
       <p>Published {date}</p>
       <div className="content text-left p-3">
         {/*leaving this here for when extra stuff has to be rendered.*/}

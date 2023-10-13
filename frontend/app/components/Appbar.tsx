@@ -19,10 +19,7 @@ const Appbar = () => {
         <div className="flex flex-col space-y-4 pl-5 hidden sm:block mx-5">
           <ul className="flex flex-row space-x-10">
             <li>
-              <Link
-                className="hover:underline text-2xl xl:text-3xl"
-                href="/"
-              >
+              <Link className="hover:underline text-2xl xl:text-3xl" href="/">
                 Home
               </Link>
             </li>

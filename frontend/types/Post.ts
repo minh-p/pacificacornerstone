@@ -21,4 +21,4 @@ type WithSlug = {
 
 type PostOfFeed = Post & WithSlug
 
-export type { Post, PostOfFeed }
+export type { Post, PostOfFeed, WithSlug }
