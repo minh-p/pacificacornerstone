@@ -21,6 +21,14 @@ const Appbar = () => {
             <li>
               <Link
                 className="hover:underline text-2xl xl:text-3xl"
+                href="/"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="hover:underline text-2xl xl:text-3xl"
                 href="/mission"
               >
                 Mission
@@ -28,7 +36,7 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:underline text-2xl xl:text-3xl"
+                className="hover:underline text-2xl xl:text-3xl hidden md:block"
                 href="/members"
               >
                 Members
@@ -36,7 +44,7 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:underline text-2xl xl:text-3xl hidden md:block"
+                className="hover:underline text-2xl xl:text-3xl hidden lg:block"
                 href="/schedule"
               >
                 Schedules
@@ -44,7 +52,7 @@ const Appbar = () => {
             </li>
             <li>
               <Link
-                className="hover:underline text-2xl xl:text-3xl hidden lg:block"
+                className="hover:underline text-2xl xl:text-3xl hidden xl:block"
                 href="/meetings"
               >
                 Meetings

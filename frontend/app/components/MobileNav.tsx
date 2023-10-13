@@ -67,12 +67,20 @@ const MobileNav = () => {
                   className="hover:underline text-2xl xl:text-3xl block sm:hidden"
                   href="/mission"
                 >
-                  Mission
+                  Home
                 </Link>
               </li>
               <li>
                 <Link
                   className="hover:underline text-2xl xl:text-3xl block sm:hidden"
+                  href="/mission"
+                >
+                  Mission
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="hover:underline text-2xl xl:text-3xl block md:hidden"
                   href="/members"
                 >
                   Members
@@ -80,7 +88,7 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block md:hidden"
+                  className="hover:underline text-2xl xl:text-3xl block lg:hidden"
                   href="/schedule"
                 >
                   Schedules
@@ -88,7 +96,7 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block lg:hidden"
+                  className="hover:underline text-2xl xl:text-3xl block xl:hidden"
                   href="/meetings"
                 >
                   Meetings
@@ -101,7 +109,7 @@ const MobileNav = () => {
             <ul className="flex flex-col space-y-5">
               <li>
                 <Link
-                  className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded block sm:hidden w-[260px]"
+                  className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded block md:hidden w-[260px]"
                   href="/theological-questions"
                 >
                   Theological Questions
