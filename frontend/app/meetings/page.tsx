@@ -4,7 +4,7 @@ import sanityClient from '@/lib/sanityClient'
 import type { PostOfFeed } from '@/types/Post'
 import { convertToSimpleDate } from '@/lib/convertToSimpleDate'
 
-const meetingFeedQuery = `*[_type == "meetingNote"] {
+const meetingFeedQuery = `*[_type == "meetingNote"] | order(publishedAt desc) {
   title,
   publishedAt,
   description,
@@ -15,7 +15,7 @@ const Meetings = async () => {
   const meetingNotes: PostOfFeed[] = await sanityClient.fetch({
     query: meetingFeedQuery,
     config: {
-      next: { revalidate: 120 },
+      next: { revalidate: 300 },
     },
   })
 

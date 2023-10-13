@@ -1,3 +1,5 @@
+'use client'
+
 import YouTube, { YouTubeProps } from 'react-youtube'
 
 const YoutubeComponent = () => {
