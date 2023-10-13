@@ -21,7 +21,7 @@ const MeetingNotes = async () => {
   return (
     <article
       id="meeting-notes"
-      className="relative max-w-[1280px] m-auto h-[800px] bg-[#f9f5eb]"
+      className="relative max-w-[1280px] m-auto h-[700px] bg-[#f9f5eb]"
     >
       <div className="pt-[50px]">
         <h2 className="text-center font-bold lx:text-5xl lg:text-4xl md:text-3xl text-2xl underline">
@@ -44,7 +44,7 @@ const MeetingNotes = async () => {
         </div>
         <Link
           href="/meetings"
-          className="md:text-2xl no-underline bg-[#36406b] text-white p-2 rounded absolute bottom-[20px] left-[50px]"
+          className="text-2xl no-underline bg-[#36406b] text-white p-2 rounded absolute bottom-[20px] left-[50px]"
         >
           Read More
         </Link>
