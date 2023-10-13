@@ -16,7 +16,8 @@ const meetingNoteQuery = `*[_type == "meetingNote" && slug.current == $slug] {
   title,
   "author": author->name,
   publishedAt,
-  body
+  body,
+  description
 }`
 
 export const generateStaticParams = async () => {
@@ -52,10 +53,19 @@ const MeetingNote = async ({ params }: { params: Props }) => {
   const date: string = convertToSimpleDate(String(meetingNote.publishedAt))
   const author: string = meetingNote.author || ''
   const body: PortableTextBlock[] = meetingNote.body as PortableTextBlock[]
+  const description: string = meetingNote.description || ''
 
   const Author = () => {
     if (author) {
       return <p>By {author}</p>
+    } else {
+      return <></>
+    }
+  }
+
+  const Description = () => {
+    if (description) {
+      return <p className="italic">{description}</p>
     } else {
       return <></>
     }
@@ -67,6 +77,7 @@ const MeetingNote = async ({ params }: { params: Props }) => {
       <Author />
       <p>Published {date}</p>
       <div className="content text-left p-3">
+        <Description />
         {/*leaving this here for when extra stuff has to be rendered.*/}
         {/*<PortableText value={body} components={components} />*/}
         <PortableText value={body} />
