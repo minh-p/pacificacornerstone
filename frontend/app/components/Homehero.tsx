@@ -4,7 +4,7 @@ const Homehero = () => {
   return (
     <article className="max-w-[1280px] m-auto relative">
       <div className="border-[2px] border-black border-solid brightness-75 m-auto p-5 bg-center bg-cover relative bg-hero-image h-[400px] md:h-[844px]"></div>
-      <div className="absolute top-[0px] md:ml-[50px] md:top-[300px] space-y-5 p-5 m-auto overflow-y-auto">
+      <div className="absolute top-[70px] md:ml-[50px] md:top-[300px] space-y-5 p-5 m-auto overflow-y-auto">
         <h1 className="text-left lx:text-7xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl font-bold italic text-white">
           A Pacifica Christian Club
         </h1>
