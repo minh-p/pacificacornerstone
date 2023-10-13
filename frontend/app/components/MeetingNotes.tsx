@@ -16,7 +16,7 @@ const MeetingNotes = async () => {
     query: meetingNotesFeedQuery,
     config: {
       next: { revalidate: 3600 },
-    }
+    },
   })
   return (
     <article
@@ -34,9 +34,7 @@ const MeetingNotes = async () => {
               return (
                 <li key={index} className="my-[25px] relative">
                   <StopCircleIcon className="bg-[#f9f5eb] hidden absolute mr-6 right-[99.5%] top-2 text-slate-200 dark:text-slate-600 md:mr-12 h-5 w-5 overflow-visible sm:block" />
-                  <p>
-                    {convertToSimpleDate(String(meetingNote.publishedAt))}
-                  </p>
+                  <p>{convertToSimpleDate(String(meetingNote.publishedAt))}</p>
                   <p className="font-bold">{meetingNote.title}</p>
                   <p>{`Description: ${meetingNote.description || 'None'}`}</p>
                 </li>
