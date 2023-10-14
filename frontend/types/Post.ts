@@ -22,4 +22,12 @@ type WithSlug = {
 
 type PostOfFeed = Post & WithSlug
 
-export type { Post, PostOfFeed, WithSlug }
+type HomePage = {
+  heroTitle: string
+  heroDescription: string
+  heroMeetingLocation: string
+  clubActivitiesVideoLink: string
+  clubActivitiesBody: PortableTextBlock[]
+}
+
+export type { Post, PostOfFeed, WithSlug, HomePage }

@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 
 const Appbar = () => {
   const currentRoute = usePathname()
-  console.log(currentRoute)
 
   return (
     <nav className="w-screen flex flex-row bg-red bg-[#952004] p-5 h-[179px] overflow-visible">

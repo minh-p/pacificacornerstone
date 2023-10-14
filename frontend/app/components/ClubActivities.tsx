@@ -1,8 +1,23 @@
 'use client'
 
 import YouTube, { YouTubeProps } from 'react-youtube'
+import type { PortableTextBlock } from '@portabletext/types'
+import { PortableText } from '@portabletext/react'
 
-const YoutubeComponent = () => {
+interface Props {
+  clubActivitiesVideoLink: string
+  clubActivitiesBody: PortableTextBlock[]
+}
+
+const YoutubeComponent = ({
+  clubActivitiesVideoLink,
+}: {
+  clubActivitiesVideoLink: string
+}) => {
+  const videoId: string = clubActivitiesVideoLink.includes('youtu.be')
+    ? `${clubActivitiesVideoLink.split('/').pop()}`
+    : `${clubActivitiesVideoLink.split('v=').pop()}`
+
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo()
@@ -16,16 +31,19 @@ const YoutubeComponent = () => {
     },
   }
 
-  return <YouTube videoId="JFwl-21pzQw" opts={opts} onReady={onPlayerReady} />
+  return <YouTube videoId={videoId} opts={opts} onReady={onPlayerReady} />
 }
 
-const ClubActivities = () => {
+const ClubActivities = ({
+  clubActivitiesVideoLink,
+  clubActivitiesBody,
+}: Props) => {
   // TODO Add editable data here from sanity.
   return (
     <article className="relative max-w-[1280px] flex flex-col 2xl:flex-row m-auto">
       <div className="text-center bg-white lx:max-w-[640px] bg-slate-100">
         <div className="m-auto p-5 aspect-video videoWrapper">
-          <YoutubeComponent />
+          <YoutubeComponent clubActivitiesVideoLink={clubActivitiesVideoLink} />
         </div>
       </div>
       <div className="bg-[#f7f7f7] text-center max-w-[100vw] 2xl:w-[640px] ">
@@ -36,9 +54,9 @@ const ClubActivities = () => {
           Club Activities
         </h2>
         {/*TODO: Add front face video content here for paragrph and title. As well the video.*/}
-        <p className="mt-[20px] lx:text-3xl lg:text-2xl md:text-xl text-lg">
-          Hello
-        </p>
+        <div className="content">
+          <PortableText value={clubActivitiesBody} />
+        </div>
       </div>
     </article>
   )
