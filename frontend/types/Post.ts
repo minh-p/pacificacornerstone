@@ -9,10 +9,11 @@ type Post = {
   author: string
   categories: Category[]
   body: PortableTextBlock[]
+  publishedAt: Date
+  description?: string
+  location?: string
   mainImageUrl?: string
   mainImageAltText?: string
-  description?: string
-  publishedAt: Date
 }
 
 type WithSlug = {

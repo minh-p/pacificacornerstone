@@ -1,6 +1,6 @@
 import type { WithSlug, Post } from '@/types/Post'
 import sanityClient from '@/lib/sanityClient'
-import { convertToSimpleDate } from '@/lib/convertToSimpleDate'
+import { convertToWordDate } from '@/lib/convertToSimpleDate'
 import { PortableText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 
@@ -17,7 +17,8 @@ const meetingNoteQuery = `*[_type == "meetingNote" && slug.current == $slug] {
   "author": author->name,
   publishedAt,
   body,
-  description
+  description,
+  location
 }`
 
 export const generateStaticParams = async () => {
@@ -50,10 +51,11 @@ const MeetingNote = async ({ params }: { params: Props }) => {
     return <h1 className="text-center">Invalid Meeting Note. Please Return.</h1>
   }
 
-  const date: string = convertToSimpleDate(String(meetingNote.publishedAt))
+  const date: string = convertToWordDate(String(meetingNote.publishedAt))
   const author: string = meetingNote.author || ''
   const body: PortableTextBlock[] = meetingNote.body as PortableTextBlock[]
   const description: string = meetingNote.description || ''
+  const location: string = meetingNote.location || ''
 
   const Author = () => {
     if (author) {
@@ -71,11 +73,20 @@ const MeetingNote = async ({ params }: { params: Props }) => {
     }
   }
 
+  const Location = () => {
+    if (location) {
+      return <p>{location}</p>
+    } else {
+      return <></>
+    }
+  }
+
   return (
     <div className="text-center py-8 m-auto max-w-4xl">
       <h1 className="text-[26pt] md:text-[40pt]">{meetingNote.title}</h1>
+      <Location />
       <Author />
-      <p>Published {date}</p>
+      <p>{date}</p>
       <div className="content text-left p-3">
         <Description />
         {/*leaving this here for when extra stuff has to be rendered.*/}

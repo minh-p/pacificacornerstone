@@ -2,13 +2,14 @@ import { StopCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import sanityClient from '@/lib/sanityClient'
 import type { PostOfFeed } from '@/types/Post'
-import { convertToSimpleDate } from '@/lib/convertToSimpleDate'
+import { convertToWordDate } from '@/lib/convertToSimpleDate'
 
 const meetingNotesFeedQuery = `*[_type == "meetingNote"] | order(publishedAt desc)[0..2] {
   title,
   publishedAt,
   description,
-  "slug": slug.current
+  "slug": slug.current,
+  location
 }`
 
 const MeetingNotes = async () => {
@@ -18,6 +19,23 @@ const MeetingNotes = async () => {
       next: { revalidate: 3600 },
     },
   })
+
+  const Description = ({ description }: { description: string }) => {
+    if (description) {
+      return <p>{`Description: ${description}`}</p>
+    } else {
+      return <></>
+    }
+  }
+
+  const Location = ({ location }: { location: string }) => {
+    if (location) {
+      return <p>{`Location: ${location}`}</p>
+    } else {
+      return <></>
+    }
+  }
+
   return (
     <article
       id="meeting-notes"
@@ -34,9 +52,10 @@ const MeetingNotes = async () => {
               return (
                 <li key={index} className="my-[25px] relative">
                   <StopCircleIcon className="bg-[#f9f5eb] hidden absolute mr-6 right-[99.5%] top-2 text-slate-200 dark:text-slate-600 md:mr-12 h-5 w-5 overflow-visible sm:block" />
-                  <p>{convertToSimpleDate(String(meetingNote.publishedAt))}</p>
+                  <p>{convertToWordDate(String(meetingNote.publishedAt))}</p>
                   <p className="font-bold">{meetingNote.title}</p>
-                  <p>{`Description: ${meetingNote.description || 'None'}`}</p>
+                  <Location location={meetingNote.location || ''} />
+                  <Description description={meetingNote.description || ''} />
                 </li>
               )
             })}
