@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react'
 import SignInButton from '@/app/components/SignInButton'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const MobileNav = () => {
   const [isOpened, setIsOpened] = useState(false)
+  const currentRoute = usePathname()
 
   useEffect(() => {
     const closeNavBar = () => {
@@ -64,7 +66,9 @@ const MobileNav = () => {
             <ul className="flex flex-col space-y-5">
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block sm:hidden"
+                  className={`hover:underline text-2xl xl:text-3xl block sm:hidden ${
+                    currentRoute == '/' ? 'underline' : ''
+                  }`}
                   href="/"
                 >
                   Home
@@ -72,7 +76,9 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block sm:hidden"
+                  className={`hover:underline text-2xl xl:text-3xl block sm:hidden ${
+                    currentRoute == '/mission' ? 'underline' : ''
+                  }`}
                   href="/mission"
                 >
                   Mission
@@ -80,7 +86,9 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block md:hidden"
+                  className={`hover:underline text-2xl xl:text-3xl block md:hidden ${
+                    currentRoute == '/members' ? 'underline' : ''
+                  }`}
                   href="/members"
                 >
                   Members
@@ -88,15 +96,19 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block lg:hidden"
-                  href="/schedule"
+                  className={`hover:underline text-2xl xl:text-3xl block lg:hidden ${
+                    currentRoute == '/schedules' ? 'underline' : ''
+                  }`}
+                  href="/schedules"
                 >
                   Schedules
                 </Link>
               </li>
               <li>
                 <Link
-                  className="hover:underline text-2xl xl:text-3xl block xl:hidden"
+                  className={`hover:underline text-2xl xl:text-3xl block xl:hidden ${
+                    currentRoute.includes('/meeting') ? 'underline' : ''
+                  }`}
                   href="/meetings"
                 >
                   Meetings
@@ -109,7 +121,11 @@ const MobileNav = () => {
             <ul className="flex flex-col space-y-5">
               <li>
                 <Link
-                  className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded block md:hidden w-[260px]"
+                  className={`hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded block md:hidden w-[260px] ${
+                    currentRoute.includes('/theological-questions')
+                      ? 'outline'
+                      : ''
+                  }`}
                   href="/theological-questions"
                 >
                   Theological Questions
@@ -117,7 +133,9 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link
-                  className="hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded inline lg:hidden"
+                  className={`hover:outline outline-2 bg-[#f40707] text-2xl p-1 rounded inline lg:hidden ${
+                    currentRoute.includes('/writing-press') ? 'outline' : ''
+                  }`}
                   href="/writing-press"
                 >
                   Writing Press
