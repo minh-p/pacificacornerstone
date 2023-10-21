@@ -22,7 +22,9 @@ Paste the GraphQL URL of Sanity into this environment variable. And everything s
 - [X] Meeting notes sub section progress bar (30 min)
 - [X] Authenticated pages (meetings and schedules). The meetings page should be a carbon copy of the sub section but more links. (15 min)
 - [X] Setting up Sanity project schema. (1h) (clone of meetings)
-- [ ] Connect meetings with Sanity. (1.5h) (clone of meetings)
+- [X] Connect meetings with Sanity. (1.5h) (clone of meetings)
+- [ ] Create Schedules
+  - [ ] Schedules Schema
 - [ ] Connect Theological Questions with Sanity. (1h) (clone of meetings)
 - [ ] Connect Writing Press with Sanity. (30 min) (clone of meetings)
 - [ ] Google project and credentials to include all Pacifica Clubs (just authentication) (5 min)
