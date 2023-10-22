@@ -31,7 +31,7 @@ export const getNextMonth = (currentMonth: string) => {
 }
 
 export const getPrevMonth = (currentMonth: string) => {
-  const index: number = month.findIndex((x) => x == currentMonth)
+  const index: number = getDateIndex(currentMonth)
   if (index == 0) {
     return { month: month[month.length - 1], newYear: true }
   } else {
@@ -45,4 +45,8 @@ export const getNextYear = (currentYear: number) => {
 
 export const getPrevYear = (currentYear: number) => {
   return currentYear - 1
+}
+
+export const getDateIndex = (currentMonth: string) => {
+  return month.findIndex((x) => x == currentMonth)
 }

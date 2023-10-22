@@ -9,7 +9,11 @@ import {
   getPrevYear,
   getNextYear,
 } from '@/lib/dateGetter'
+import useSWR from 'swr'
 import NextPrevButtons from '@/app/components/NextPrevButtons'
+import { ChevronRightIcon, StopCircleIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
+import { convertToWordDate } from '@/lib/convertToSimpleDate'
 
 const Schedules = () => {
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
@@ -34,6 +38,28 @@ const Schedules = () => {
     }
   }
 
+  const { data: schedules, error } = useSWR(
+    `/api/schedules?currentYear=${currentYear}&currentMonth=${currentMonth}`,
+    (url) => fetch(url).then((res) => res.json())
+  )
+  if (error)
+    return (
+      <div>
+        <p>
+          An Error Occured With front-end configuration. Please contact
+          site&apos;s maintainer.
+        </p>
+      </div>
+    )
+  if (!schedules)
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    )
+
+  console.log(currentMonth)
+
   return (
     <section className="bg-zinc-200">
       <article className="max-w-[1280px] m-auto h-full p-5 bg-[#f9f5eb] min-h-[calc(100vh-179px)]">
@@ -48,8 +74,33 @@ const Schedules = () => {
             textInMiddle={`${currentMonth} ${currentYear}`}
           />
         </div>
-        <div className="m-auto">
-          <p>Nothing Here Yet</p>
+        <div className="md:max-w-[50%] text-2xl m-auto my-[50px] relative">
+          <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-[3px] bg-slate-200 dark:bg-slate-800 sm:block"></div>
+          <ul>
+            {schedules.map((item, index: number) => {
+              const link: string = item.slug || 'not found'
+              return (
+                <li key={index} className="my-[25px] relative">
+                  <StopCircleIcon className="bg-[#f9f5eb] hidden absolute mr-6 right-[99.5%] top-2 text-slate-200 dark:text-slate-600 md:mr-12 h-5 w-5 overflow-visible sm:block" />
+                  <p className="font-bold">{item.title}</p>
+                  <p>Start Date: {convertToWordDate(String(item.startDate))}</p>
+                  <p>End Date: {convertToWordDate(String(item.endDate))}</p>
+                  <Link
+                    href={`/schedules/${encodeURIComponent(
+                      link
+                    )}?currentYear=${new Date(item.startDate).getFullYear()}`}
+                    className="md:text-lg no-underline bg-[#36406b] text-white p-2 py-1 my-2 rounded inline-flex"
+                  >
+                    Read more
+                    <ChevronRightIcon
+                      aria-hidden="true"
+                      className="-mr-1 h-8 w-5 text-white"
+                    />
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </article>
     </section>

@@ -3,6 +3,7 @@ export const convertToSimpleDate = (dateString: string) =>
 
 export const convertToWordDate = (dateString: string) =>
   new Date(dateString).toLocaleString('en-us', {
+    day: 'numeric',
     month: 'long',
     year: 'numeric',
     hour: 'numeric',
