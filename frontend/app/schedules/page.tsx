@@ -91,11 +91,7 @@ const Schedules = () => {
                   </p>
                   <p>End Date: {convertToWordDate(String(schedule.endDate))}</p>
                   <Link
-                    href={`/schedules/${encodeURIComponent(
-                      link
-                    )}?currentYear=${new Date(
-                      schedule.startDate
-                    ).getFullYear()}`}
+                    href={`/schedules/${link}`}
                     className="md:text-lg no-underline bg-[#36406b] text-white p-2 py-1 my-2 rounded inline-flex"
                   >
                     Read more
