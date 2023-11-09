@@ -3,7 +3,7 @@ import ClubActivities from '@/app/components/ClubActivities'
 import MeetingNotes from '@/app/components/MeetingNotes'
 import sanityClient from '@/lib/sanityClient'
 import type { PortableTextBlock } from '@portabletext/types'
-import type { HomePage } from '@/types/Post'
+import type { HomePage } from '@/types/post'
 
 const homePageQuery = `*[_type == "homePage"] {
   heroTitle,

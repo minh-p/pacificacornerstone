@@ -14,7 +14,7 @@ import NextPrevButtons from '@/app/components/NextPrevButtons'
 import { ChevronRightIcon, StopCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { convertToWordDate } from '@/lib/convertToSimpleDate'
-import type { ScheduleFeed } from '@/types/Schedule'
+import type { ScheduleFeed } from '@/types/schedule'
 
 const Schedules = () => {
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())

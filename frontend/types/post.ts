@@ -16,11 +16,11 @@ type Post = {
   mainImageAltText?: string
 }
 
-type WithSlug = {
+type JustSlug = {
   slug: string
 }
 
-type PostOfFeed = Post & WithSlug
+type PostOfFeed = Post & JustSlug
 
 type HomePage = {
   heroTitle: string
@@ -30,4 +30,4 @@ type HomePage = {
   clubActivitiesBody: PortableTextBlock[]
 }
 
-export type { Post, PostOfFeed, WithSlug, HomePage }
+export type { Post, PostOfFeed, JustSlug, HomePage }

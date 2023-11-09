@@ -1,7 +1,7 @@
 import { StopCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import sanityClient from '@/lib/sanityClient'
-import type { PostOfFeed } from '@/types/Post'
+import type { PostOfFeed } from '@/types/post'
 import { convertToWordDate } from '@/lib/convertToSimpleDate'
 
 const meetingNotesFeedQuery = `*[_type == "meetingNote"] | order(publishedAt desc)[0..2] {

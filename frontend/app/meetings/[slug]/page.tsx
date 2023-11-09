@@ -1,12 +1,8 @@
-import type { WithSlug, Post } from '@/types/Post'
+import type { JustSlug, Post } from '@/types/post'
 import sanityClient from '@/lib/sanityClient'
 import { convertToWordDate } from '@/lib/convertToSimpleDate'
 import { PortableText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
-
-interface Props {
-  slug: string
-}
 
 const allMeetingNotesQuery = `*[_type == "meetingNote"] {
   "slug": slug.current
@@ -22,20 +18,20 @@ const meetingNoteQuery = `*[_type == "meetingNote" && slug.current == $slug] {
 }`
 
 export const generateStaticParams = async () => {
-  const meetingNotes: WithSlug[] = await sanityClient.fetch({
+  const meetingNotes: JustSlug[] = await sanityClient.fetch({
     query: allMeetingNotesQuery,
     config: {
       next: { revalidate: 120 },
     },
   })
   return meetingNotes
-    .map((meetingNote: WithSlug) => ({
+    .map((meetingNote: JustSlug) => ({
       slug: meetingNote.slug || '',
     }))
-    .filter((eachPropField: Props) => eachPropField.slug != '')
+    .filter((eachPropField: JustSlug) => eachPropField.slug != '')
 }
 
-const MeetingNote = async ({ params }: { params: Props }) => {
+const MeetingNote = async ({ params }: { params: JustSlug }) => {
   const data: Post[] = await sanityClient.fetch({
     query: meetingNoteQuery,
     params: {

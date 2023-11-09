@@ -5,9 +5,7 @@ const query = `*[_type == "schedule" && dateTime(endDate) >= dateTime($date) && 
   title,
   "slug": slug.current,
   startDate,
-  endDate,
-  body,
-  categories
+  endDate
 }`
 
 const handler = async (req: NextRequest) => {
