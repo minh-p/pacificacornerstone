@@ -8,4 +8,7 @@ export const convertToWordDate = (dateString: string) =>
     year: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
-  })
+    timeZone: process.env.TIME_ZONE,
+  }) +
+  ' ' +
+  process.env.TIME_ZONE_NAME
