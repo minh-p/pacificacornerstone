@@ -15,6 +15,7 @@ import { ChevronRightIcon, StopCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { convertToWordDate } from '@/lib/convertToSimpleDate'
 import type { ScheduleFeed } from '@/types/schedule'
+import { getCategoriesString } from '@/lib/basicArrayAlgorithms'
 
 const Schedules = () => {
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
@@ -84,6 +85,7 @@ const Schedules = () => {
                 <li key={index} className="my-[25px] relative">
                   <StopCircleIcon className="bg-[#f9f5eb] hidden absolute mr-6 right-[99.5%] top-2 text-slate-200 dark:text-slate-600 md:mr-12 h-5 w-5 overflow-visible sm:block" />
                   <p className="font-bold">{schedule.title}</p>
+                  <p>Categories: {getCategoriesString(schedule.categories)}</p>
                   <p>
                     Start Date: {convertToWordDate(String(schedule.startDate))}
                   </p>

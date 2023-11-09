@@ -5,7 +5,10 @@ const query = `*[_type == "schedule" && dateTime(endDate) >= dateTime($date) && 
   title,
   "slug": slug.current,
   startDate,
-  endDate
+  endDate,
+  categories[]->{
+    title
+  }
 }`
 
 const handler = async (req: NextRequest) => {

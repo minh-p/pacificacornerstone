@@ -9,11 +9,11 @@ type ScheduleFeed = {
   slug: string
   startDate: Date
   endDate: Date
+  categories: Category[]
 }
 
 interface Schedule extends ScheduleFeed {
   body: PortableTextBlock[]
-  categories: Category[]
 }
 
 type JustSlug = {
