@@ -78,18 +78,22 @@ const MeetingNote = async ({ params }: { params: JustSlug }) => {
   }
 
   return (
-    <div className="text-center py-8 m-auto max-w-4xl">
-      <h1 className="text-[26pt] md:text-[40pt]">{meetingNote.title}</h1>
-      <Location />
-      <Author />
-      <p>{date}</p>
-      <div className="content text-left p-3">
-        <Description />
-        {/*leaving this here for when extra stuff has to be rendered.*/}
-        {/*<PortableText value={body} components={components} />*/}
-        <PortableText value={body} />
-      </div>
-    </div>
+    <section className="bg-zinc-200">
+      <article className="max-w-[1280px] m-auto h-full p-5 bg-[#f9f5eb] min-h-[calc(100vh-179px)]">
+        <div className="text-center py-8 m-auto max-w-4xl">
+          <h1 className="text-[26pt] md:text-[40pt]">{meetingNote.title}</h1>
+          <Location />
+          <Author />
+          <p>{date}</p>
+          <div className="content text-left p-3">
+            <Description />
+            {/*leaving this here for when extra stuff has to be rendered.*/}
+            {/*<PortableText value={body} components={components} />*/}
+            <PortableText value={body} />
+          </div>
+        </div>
+      </article>
+    </section>
   )
 }
 
