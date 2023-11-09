@@ -14,8 +14,19 @@ const handler = async (req: NextRequest) => {
   try {
     const currentMonth = req.nextUrl.searchParams.get('currentMonth')
     const currentYear = req.nextUrl.searchParams.get('currentYear')
-    const date = new Date(currentYear, getDateIndex(currentMonth))
-    const dateAfterMonth = new Date(currentYear, getDateIndex(currentMonth), 30)
+
+    if (!currentMonth || !currentYear) {
+      return Response.json({
+        error: 'API route requires current month and year.',
+      })
+    }
+
+    const date = new Date(Number(currentYear), getDateIndex(currentMonth))
+    const dateAfterMonth = new Date(
+      Number(currentYear),
+      getDateIndex(currentMonth),
+      30
+    )
     const data = await sanityClient.fetch({
       query,
       params: { date, dateAfterMonth },
